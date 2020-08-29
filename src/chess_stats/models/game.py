@@ -18,7 +18,7 @@ class Game:
         rules=None,
         white_player=None,
         black_player=None,
-    ):
+    ) -> None:
         white_player = Player() if white_player is None else white_player
         black_player = Player() if black_player is None else black_player
         self.url = url

@@ -9,6 +9,7 @@ license = "MIT"
 python = "^3.8"
 requests = "^2.24.0"
 click = "^7.1.2"
+termgraph = "^0.4.2"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"

@@ -1,14 +1,16 @@
 import click
 
+from datetime import datetime
 from . import __version__
-from .chess_stats import compute_year_summary
+from . import chess_stats as stats
 
 
 @click.command()
 @click.version_option(version=__version__)
 def main():
-    summary = compute_year_summary("jjjulio", 2020)
-    print(f"wins {summary.wins}, losses {summary.losses}, draws {summary.draws}")
+    # TODO take username as param
+    summary = stats.compute_annual_summary("jjjulio", datetime.now().year)
+    stats.graph_annual_summary(summary)
 
 
 if __name__ == "__main__":
