@@ -22,7 +22,7 @@ class ChessDotComAdapter:
         """
         num_months = datetime.now().month if datetime.now().year == year else 12
         games = []
-        for month in range(1, num_months+1):
+        for month in range(1, num_months + 1):
             url = self.build_url(username, year, month)
             res = self.client.get(url)
             res.raise_for_status()

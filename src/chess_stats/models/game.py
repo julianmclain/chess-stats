@@ -6,6 +6,7 @@ class Game:
     """
     TODO
     """
+
     def __init__(
         self,
         url=None,
@@ -54,10 +55,14 @@ class Game:
         winner = self.winning_player
         if winner is None:
             return None
-        return self.white_player if winner.username == self.black_player.username else self.black_player
+        return (
+            self.white_player
+            if winner.username == self.black_player.username
+            else self.black_player
+        )
 
     @staticmethod
-    def from_json(game_json) -> 'Game':
+    def from_json(game_json) -> "Game":
         white_result = game_json["white"]["result"]
         white_username = game_json["white"]["username"]
         white_rating = game_json["white"]["rating"]

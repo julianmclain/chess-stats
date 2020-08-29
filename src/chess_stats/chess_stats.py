@@ -41,4 +41,6 @@ def graph_annual_summary(summary: AnnualSummary) -> None:
         remainder_bar = chr(ord("█") + remainder)
         bar += remainder_bar
         empty = "▏"
-        print(f"{label.rjust(max_label_length)} | {str(value).rjust(max_value_length)} {bar}")
+        print(
+            f"{label.rjust(max_label_length)} | {str(value).rjust(max_value_length)} {bar}"
+        )
