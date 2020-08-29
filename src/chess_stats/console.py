@@ -1,7 +1,7 @@
 import click
 
 from . import __version__
-from chess_stats.chess_stats import compute_year_summary
+from .chess_stats import compute_year_summary
 
 
 @click.command()

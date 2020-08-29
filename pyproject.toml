@@ -8,11 +8,15 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.24.0"
+click = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
 flake8 = "^3.8.3"
 flake8-black = "^0.2.0"
+
+[tool.poetry.scripts]
+chess-stats = "chess_stats.console:main"
 
 [build-system]
 requires = ["poetry>=0.12"]
