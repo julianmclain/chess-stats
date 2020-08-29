@@ -2,9 +2,7 @@
 
 TODO
 - docstrings
-- beef up how requests are made (e.g. timeouts)
 - test
+- README
 - pypi
-- chart wins and losses by month
-
-usage: chess-stats jjjulio 2020
+- beef up how requests are made (e.g. timeouts)
