@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "chess-stats"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple command-line tool that graphs Chess.com game stats"
 authors = ["julianmclain <julianrmclain@gmail.com>"]
 license = "MIT"

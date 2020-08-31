@@ -12,7 +12,9 @@ def test_fetch_games_for_previous_year_succeeds(requests_mock):
     username = "jjjulio"
     year = 2019
     for i in range(1, 13):
-        requests_mock.get(ChessDotComClient.build_url(username, year, i), json=response_json)
+        requests_mock.get(
+            ChessDotComClient.build_url(username, year, i), json=response_json
+        )
     fetch_games_for_year(username, year)
     requests_mock.called
     assert requests_mock.call_count == 12
@@ -23,7 +25,9 @@ def test_create_annual_summary_succeeds(requests_mock):
     username = "jjjulio"
     year = 2019
     for i in range(1, 13):
-        requests_mock.get(ChessDotComClient.build_url(username, year, i), json=response_json)
+        requests_mock.get(
+            ChessDotComClient.build_url(username, year, i), json=response_json
+        )
     summary = create_annual_summary(username, year)
     assert summary.wins == 12
     assert summary.losses == 12

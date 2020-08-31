@@ -1,7 +1,7 @@
 import click
 
-from . import __version__
-from . import chess_stats as stats
+from chess_stats import __version__
+from chess_stats import chess_stats as stats
 
 
 @click.command()

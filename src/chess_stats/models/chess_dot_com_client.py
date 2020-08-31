@@ -1,7 +1,7 @@
 from requests import Session
 
 from typing import List
-from .game import Game
+from chess_stats.models.game import Game
 
 
 class ChessDotComClient:

@@ -11,5 +11,7 @@ def runner():
 
 @pytest.mark.e2e
 def test_main_succeeds(runner):
-    result = runner.invoke(console.main, args=["jjjulio", "2020"], catch_exceptions=False)
+    result = runner.invoke(
+        console.main, args=["jjjulio", "2020"], catch_exceptions=False
+    )
     assert result.exit_code == 0

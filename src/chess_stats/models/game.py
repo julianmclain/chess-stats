@@ -1,5 +1,5 @@
 from typing import Dict, Optional
-from src.chess_stats.models.player import Player
+from chess_stats.models.player import Player
 
 
 class Game:

@@ -4,7 +4,9 @@ from .common import read_json_fixture
 
 def test_fetch_games_succeeds(requests_mock):
     response_data = read_json_fixture("games-2020-08.json")
-    requests_mock.get("https://api.chess.com/pub/player/jjjulio/games/2020/08", json=response_data)
+    requests_mock.get(
+        "https://api.chess.com/pub/player/jjjulio/games/2020/08", json=response_data
+    )
     cdc = ChessDotComClient()
     cdc.fetch_games("jjjulio", 2020, 8)
     assert requests_mock.called

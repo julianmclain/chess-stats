@@ -1,6 +1,6 @@
 from typing import List, Dict
 from datetime import datetime
-from .models import ChessDotComClient, AnnualSummary, Game
+from chess_stats.models import ChessDotComClient, AnnualSummary, Game
 
 
 def fetch_games_for_year(username: str, year: int) -> List[Game]:

@@ -1,9 +1,17 @@
 # Chess Stats
-
+![chess-stats](https://www.dropbox.com/s/c1uozjivyz6k0mw/chess-stats.png?raw=1)
 Chess Stats is a simple command-line tool that graphs Chess.com game stats.
 
 ## Background
-I play a lot of games on Chess.com. The platform has good tools for analyzing each game, but the st I wanted a quick way to understand my stats. Chess.com gives you a lot of great tools for individual games, but there isn't much for larger trends
+Chess.com has great tools for analyzing individual games, but it doesn't provide much around higher-level
+insights (e.g. trends like which mistakes you make most, how well you manage your time,
+etc...). I realized they provide a free API that can be used to fetch all of a player's games. It gave me
+the idea to create a simple tool that will download all of my games, and run my own analysis.
+
+This is the initial, very limited release. With more time in the future, I'd like make 2 additions:
+1. Break out the losses category into more granular classifications (i.e. checkmated, insufficient time, resigned) 
+2. Uses a chess engine like [stockfish](https://pypi.org/project/stockfish/) to identify blunders and plot the
+   mean number of blunders committed per game during the year. 
 
 ## Installation
 Chess Stats is available on PyPI:
@@ -13,7 +21,7 @@ $ python -m pip install chess-stats
 ```
 
 ## Usage 
-From the terminal, run the executable with a Chess.com username and a year:
+The Chess Stats CLI has a single command that takes 2 arguments: the username and the year.
 
 ```text
 $ chess-stats jjjulio 2020
@@ -25,9 +33,3 @@ Losses |     64 █████████████████████�
  Draws |      1 ▊
 ```
 
-TODO
-- docstrings (requests for inspo)
-- test
-- README 
-- pypi
-- beef up how requests are made (e.g. timeouts)
