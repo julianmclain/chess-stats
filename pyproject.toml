@@ -6,7 +6,7 @@ authors = ["julianmclain <julianrmclain@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 requests = "^2.24.0"
 click = "^7.1.2"
 
