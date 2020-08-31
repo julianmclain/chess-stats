@@ -21,11 +21,11 @@ def fetch_games_for_year(username: str, year: int) -> List[Game]:
 
 
 def create_annual_summary(username: str, year: int) -> AnnualSummary:
-    """
+    """Create an annual summary of a Chess.com user's games.
 
-    :param username:
-    :param year:
-    :return:
+    :param username: The Chess.com player's username
+    :param year: The year of games to fetch
+    :return: A summary of the player's games
     """
     games = fetch_games_for_year(username, year)
     wins = 0
@@ -43,10 +43,10 @@ def create_annual_summary(username: str, year: int) -> AnnualSummary:
 
 
 def create_annual_summary_graph(summary: AnnualSummary) -> List[str]:
-    """
+    """Create a bar graph representation of a player's games.
 
-    :param summary:
-    :return:
+    :param summary: A summary of the player's games
+    :return: A list of the graph's rows
     """
     graph = []
     title = f"\nYour {summary.year} Chess.com Year in Review\n"
@@ -72,10 +72,10 @@ def create_annual_summary_graph(summary: AnnualSummary) -> List[str]:
 
 
 def _scale_values(data: Dict[str, int]) -> Dict[str, int]:
-    """
+    """Scale data values to fit a pre-determined width.
 
-    :param data:
-    :return:
+    :param data: A dictionary of labels to data values to be scaled
+    :return: A dictionary of the provided labels to scaled data values
     """
     graph_max_num_bars = 288  # 36 bars of eighths
     max_data_value = max(data.values())
@@ -92,9 +92,9 @@ def _scale_values(data: Dict[str, int]) -> Dict[str, int]:
 
 
 def print_annual_summary_graph(graph: List[str]) -> None:
-    """
+    """Print an annual summary graph to the console.
 
-    :param graph:
+    :param graph: The graph to be printed
     """
     for row in graph:
         print(row)
