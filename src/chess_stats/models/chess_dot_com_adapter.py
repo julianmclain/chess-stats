@@ -20,7 +20,9 @@ class ChessDotComAdapter:
         :param year:
         :return:
         """
-        num_months = datetime.now().month if datetime.now().year == year else 12
+        if not isinstance(year, int):
+            raise ValueError("Year must an integer")
+        num_months = datetime.now().month if year == datetime.now().year else 12
         games = []
         for month in range(1, num_months + 1):
             url = self.build_url(username, year, month)

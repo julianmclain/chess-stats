@@ -1,6 +1,5 @@
 import click
 
-from datetime import datetime
 from . import __version__
 from . import chess_stats as stats
 
@@ -11,5 +10,6 @@ from . import chess_stats as stats
 @click.argument("year")
 def main(username, year):
     """View your Chess.com year in review"""
-    summary = stats.compute_annual_summary("jjjulio", datetime.now().year)
-    stats.graph_annual_summary(summary)
+    summary = stats.create_annual_summary(username, int(year))
+    graph = stats.create_annual_summary_graph(summary)
+    stats.print_annual_summary_graph(graph)
