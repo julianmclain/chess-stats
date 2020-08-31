@@ -1,6 +1,5 @@
 class AnnualSummary:
-    """
-    TODO
+    """A summary of player's chess statistics for the year.
     """
 
     def __init__(self, year: int, wins: int, losses: int, draws: int) -> None:

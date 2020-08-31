@@ -1,10 +1,9 @@
-from typing import Optional
+from typing import Dict, Optional
 from src.chess_stats.models.player import Player
 
 
 class Game:
-    """
-    TODO
+    """A chess game result.
     """
 
     def __init__(
@@ -35,9 +34,9 @@ class Game:
 
     @property
     def winning_player(self) -> Optional[Player]:
-        """Get the winner of the game
+        """Get the winner of the game.
 
-        :return: The winning player or None if no winner
+        :return: The winning player or None if the result was a draw or stalemate.
         """
         if self.white_player.result == "win":
             return self.white_player
@@ -48,9 +47,9 @@ class Game:
 
     @property
     def losing_player(self) -> Optional[Player]:
-        """
-        TODO
-        :return:
+        """Get the loser of the game.
+
+        :return: The losing player or None if the result was a draw or stalemate.
         """
         winner = self.winning_player
         if winner is None:
@@ -62,7 +61,12 @@ class Game:
         )
 
     @staticmethod
-    def from_json(game_json) -> "Game":
+    def from_json(game_json: Dict[str, str]) -> "Game":
+        """Create a GameResult instance from a JSON representation.
+
+        :param game_json: The game JSON deserialized into a dictionary.
+        :return: A GameResult object instantiated with the JSON data.
+        """
         white_result = game_json["white"]["result"]
         white_username = game_json["white"]["username"]
         white_rating = game_json["white"]["rating"]

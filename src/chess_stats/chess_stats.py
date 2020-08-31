@@ -1,6 +1,23 @@
-from .models import ChessDotComAdapter
-from .models import AnnualSummary
 from typing import List, Dict
+from datetime import datetime
+from .models import ChessDotComClient, AnnualSummary, Game
+
+
+def fetch_games_for_year(username: str, year: int) -> List[Game]:
+    """Query the Chess.com API for all games that the given user played in a given year.
+
+    :param username: The Chess.com player's username
+    :param year: The year of games to fetch
+    :return: A list of Games
+    """
+    if not isinstance(year, int):
+        raise ValueError("Year must an integer")
+    num_months = datetime.now().month if year == datetime.now().year else 12
+    cdc = ChessDotComClient()
+    games = []
+    for month in range(1, num_months + 1):
+        games.extend(cdc.fetch_games(username, year, month))
+    return games
 
 
 def create_annual_summary(username: str, year: int) -> AnnualSummary:
@@ -10,8 +27,7 @@ def create_annual_summary(username: str, year: int) -> AnnualSummary:
     :param year:
     :return:
     """
-    cdc = ChessDotComAdapter()
-    games = cdc.fetch_games_for_year(username, year)
+    games = fetch_games_for_year(username, year)
     wins = 0
     losses = 0
     draws = 0
@@ -44,8 +60,8 @@ def create_annual_summary_graph(summary: AnnualSummary) -> List[str]:
     label_space_control = max((len(label) for label in data.keys()))
     value_space_control = max((len(str(value)) for value in data.values())) + 1
     scaled_data = _scale_values(data)
-    for label, value in scaled_data.items():
-        num_bars, remainder = divmod(value, 8)
+    for (label, value), scaled_value in zip(data.items(), scaled_data.values()):
+        num_bars, remainder = divmod(scaled_value, 8)
         bar = "█" * num_bars
         remainder_bar = chr(ord("█") + remainder)
         bar += remainder_bar
@@ -69,7 +85,7 @@ def _scale_values(data: Dict[str, int]) -> Dict[str, int]:
         return data
 
     scaled_data = {}
-    for label, value in data.items:
+    for label, value in data.items():
         scaled_data[label] = int(value * scale_factor)
 
     return scaled_data

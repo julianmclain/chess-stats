@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "chess-stats"
 version = "0.1.0"
-description = "Analyze your chess.com games"
+description = "A simple command-line tool that graphs Chess.com game stats"
 authors = ["julianmclain <julianrmclain@gmail.com>"]
 license = "MIT"
 
@@ -14,6 +14,8 @@ click = "^7.1.2"
 black = "^19.10b0"
 flake8 = "^3.8.3"
 flake8-black = "^0.2.0"
+pytest = "^6.0.1"
+requests_mock = "^1.8.0"
 
 [tool.poetry.scripts]
 chess-stats = "chess_stats.console:main"
