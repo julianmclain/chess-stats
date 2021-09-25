@@ -28,7 +28,7 @@ The Chess Stats CLI has a single command that takes 2 arguments: the Chess.com
 username and the year.
 
 ```text
-$ chess-stats jjjulio 2020
+$ chess-stats bored_elon_musk 2020
 
 Your 2020 Chess.com Year in Review
 
