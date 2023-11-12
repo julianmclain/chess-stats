@@ -3,13 +3,10 @@ Chess Stats is a simple command-line tool that graphs Chess.com game stats.
 
 ## Background
 Chess.com has great tools for analyzing individual games, but it doesn't provide
-much around higher-level insights (e.g. trends like which mistakes you make
-most, how well you manage your time, etc...). I realized they provide a free API
-that can be used to fetch all of a player's games. It gave me the idea to create
-a simple tool that will download all of my games and run my own analysis.
+much around higher-level insights (e.g. trends like which mistakes you make the
+most, how well you manage your time, etc...).
 
-This is the initial, very limited release. With more time in the future, I'd
-like make 2 additions:
+Initial version of this CLI just graphs the outcomes of your games. Future improvements
 1. Break out the losses category into more granular classifications (i.e.
    checkmated, insufficient time, resigned) 
 2. Use a chess engine like [stockfish](https://pypi.org/project/stockfish/) to
